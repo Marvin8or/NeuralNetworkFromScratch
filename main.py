@@ -1,4 +1,4 @@
-from utilities import NeuralNetwork
+from utilities import *
 from operator import xor
 import numpy as np
 
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     
     # Build neural network
     simple_network = NeuralNetwork(3)
-    simple_network.add_layer(5, "ReLU", 4)
+    simple_network.add_layer(5, "ReLU", np.array([[1, 2, 3, 4, 5]]).T)
     simple_network.add_layer(4, "ReLU", 3)
     simple_network.add_layer(3, "ReLU", 2)
     simple_network.add_layer(2, "ReLU", 1)
@@ -59,7 +59,8 @@ if __name__ == "__main__":
     # simple_network.print_layout()
 
     # Feed forward
-    # simple_network.feed_forward(AND_operation_recognition_dataset[0])
+    # XXX For some reason gives ERROR!!
+    simple_network.feed_forward(AND_operation_recognition_dataset[0])
 
     # Print the output after first feed forward
     # print(simple_network.output())
