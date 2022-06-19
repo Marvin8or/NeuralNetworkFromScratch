@@ -11,8 +11,8 @@ def generate_dummy_dataset(number_of_samples, operation="AND"):
 
     Example
 
-    >>>AND_dataset = generate_dummy_dataset(5, operation="AND")
-    >>>AND_dataset
+    >>> AND_dataset = generate_dummy_dataset(5, operation="AND")
+    >>> AND_dataset
     [[1, 0, False]
      [0, 0, True]
      [1, 1, True]
