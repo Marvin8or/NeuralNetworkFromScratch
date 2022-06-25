@@ -1,2 +1,2 @@
 from .network import *
-from .activations import *
+from .functions import *

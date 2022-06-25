@@ -49,20 +49,26 @@ if __name__ == "__main__":
     print(AND_operation_recognition_dataset)
     
     # Build neural network
-    simple_network = NeuralNetwork(3)
-    simple_network.add_layer(5, "ReLU", np.array([[1, 2, 3, 4, 5]]).T)
-    simple_network.add_layer(4, "ReLU", 3)
-    simple_network.add_layer(3, "ReLU", 2)
-    simple_network.add_layer(2, "ReLU", 1)
+    simple_network = NeuralNetwork(2)
+    simple_network.add_layer(number_of_neurons=5, activation_function="ReLU")
+    simple_network.add_layer(number_of_neurons=4, activation_function="ReLU")
+    simple_network.add_layer(number_of_neurons=3, activation_function="ReLU")
+    simple_network.add_layer(number_of_neurons=2, activation_function="ReLU")
 
     # Print network layout
-    # simple_network.print_layout()
+    simple_network.print_layout()
 
     # Feed forward
-    # XXX For some reason gives ERROR!!
-    simple_network.feed_forward(AND_operation_recognition_dataset[0])
+    X, y = AND_operation_recognition_dataset[0, :2], AND_operation_recognition_dataset[0, 2]
+    first_input = np.array([X]).T
+    first_output = np.array([y]).T
 
-    # Print the output after first feed forward
-    # print(simple_network.output())
+    print(f"input: {first_input}")
+    output = simple_network.feed_forward(first_input)
+    print(f"output: {output}")
+
+    dC_dw, dC_db = simple_network.back_propagation(first_output)
+    print(dC_dw)
+
     
     
